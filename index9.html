@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Phim Hoạt Hình</title>
+    <style>
+        /* --- Cài đặt cơ bản --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* --- Mức trung bình: Header cố định (Fixed Header) --- */
+        .top-section {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Phần Header: Logo */
+        .header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header h1 {
+            color: #d32f2f;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .header h1 span {
+            color: #fdd835;
+            background-color: #d32f2f;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        /* Phần Head-link (Menu) */
+        .nav {
+            padding: 10px 20px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        .nav a {
+            text-decoration: none; /* Bỏ gạch chân */
+            color: #333;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        /* Mức trung bình: Hiệu ứng Hover đổi màu và in đậm */
+        .nav a:hover {
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        /* --- Mức cơ bản: Bố cục Content (Left & Right) --- */
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        /* Left Content: Danh sách video */
+        .left-content {
+            flex: 3; /* Chiếm khoảng 30% */
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ddd;
+            height: max-content;
+        }
+
+        .video-item {
+            display: flex;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .video-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .video-thumb {
+            width: 120px;
+            height: 70px;
+            background-color: #ccc;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .video-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+            color: #000;
+        }
+
+        .video-info p {
+            margin: 0;
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* Right Content: Trình phát video chính */
+        .right-content {
+            flex: 7; /* Chiếm khoảng 70% */
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 450px;
+            background-color: black;
+            margin-bottom: 15px;
+        }
+
+        .video-player iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .right-content h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .right-content .views {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .right-content .description {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* Phần Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e9e9e9;
+            color: #555;
+            font-size: 13px;
+            margin-top: 40px;
+        }
+
+        /* --- Mức nâng cao: Responsive --- */
+        @media screen and (max-width: 800px) {
+            .main-container {
+                flex-direction: column-reverse; /* Đảo ngược để video chính lên trên trên mobile */
+            }
+            .left-content, .right-content {
+                flex: 100%;
+                width: 100%;
+            }
+            .video-player {
+                height: 300px;
+            }
+            .nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .nav a {
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Khối chứa Header và Nav để dính (sticky) lên trên cùng -->
+    <div class="top-section">
+        <!-- Header -->
+        <div class="header">
+            <h1>Phim<span>HoạtHình</span></h1>
+        </div>
+
+        <!-- Head-link -->
+        <div class="nav">
+            <a href="#">Phim hoạt hình</a> |
+            <a href="#">Phim hoạt hình yêu thích</a> |
+            <a href="#">Nhân vật hoạt hình</a> |
+            <a href="#">Góp ý</a>
+        </div>
+    </div>
+
+    <!-- Container Chính -->
+    <div class="main-container">
+        
+        <!-- Left Content -->
+        <div class="left-content">
+            <div class="video-item">
+                <img src="https://via.placeholder.com/120x70" alt="Thumb 1" class="video-thumb">
+                <div class="video-info">
+                    <h4>Welcome đến với khách sạn Nobi</h4>
+                    <p>5,147,328 lượt xem</p>
+                    <p>Channel Fun</p>
+                </div>
+            </div>
+            <div class="video-item">
+                <img src="https://via.placeholder.com/120x70" alt="Thumb 2" class="video-thumb">
+                <div class="video-info">
+                    <h4>Suneo khổng lồ</h4>
+                    <p>3,147,328 lượt xem</p>
+                    <p>Doraemon Vietsub</p>
+                </div>
+            </div>
+            <div class="video-item">
+                <img src="https://via.placeholder.com/120x70" alt="Thumb 3" class="video-thumb">
+                <div class="video-info">
+                    <h4>Cái điều khiển vật</h4>
+                    <p>3,147,328 lượt xem</p>
+                    <p>Doraemon Vietsub</p>
+                </div>
+            </div>
+            <div class="video-item">
+                <img src="https://via.placeholder.com/120x70" alt="Thumb 4" class="video-thumb">
+                <div class="video-info">
+                    <h4>Chiếc máy tạo kẹo bông</h4>
+                    <p>8,147,328 lượt xem</p>
+                    <p>Doraemon Vietsub</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="right-content">
+            <div class="video-player">
+                <!-- Luyện tập nhúng YouTube video bằng iframe -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            </div>
+            <h2>Tớ là Mari & Gậy di chuyển</h2>
+            <p class="views">5,147,328 lượt xem • Tác giả</p>
+            <div class="description">
+                <p>Bộ phim kể về câu chuyện Thạch Sanh chém Trăn Tinh cứu dân, bắn Đại Bàng cứu công chúa, dùng tiếng đàn nhân nghĩa dẹp tan quân xâm lăng. Nhưng cuộc đời Thạch Sanh luôn bị tên Lý Thông làm cho điêu đứng. Cuối cùng chính nghĩa đã thắng. Tên Lý Thông gian ác bị đền tội. Mời các bạn cùng đón xem và cảm nhận.</p>
+                <br>
+                <p>Bộ phim kể về câu chuyện Thạch Sanh chém Trăn Tinh cứu dân, bắn Đại Bàng cứu công chúa, dùng tiếng đàn nhân nghĩa dẹp tan quân xâm lăng. Nhưng cuộc đời Thạch Sanh luôn bị tên Lý Thông làm cho điêu đứng. Cuối cùng chính nghĩa đã thắng. Tên Lý Thông gian ác bị đền tội. Mời các bạn cùng đón xem và cảm nhận.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2017 - Thiết kế web bởi trang hoathinhvn.net
+    </div>
+
+</body>
+</html>
